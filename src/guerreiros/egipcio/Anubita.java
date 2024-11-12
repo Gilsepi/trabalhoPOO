@@ -12,4 +12,8 @@ import guerreiros.egipcio.Egipcio;
  */
 public class Anubita extends Egipcio{
     
+    public Anubita(int energia, int peso, int idade, String nome) {
+        super(energia, peso, idade, nome);
+    }
+    
 }

@@ -12,4 +12,8 @@ import guerreiros.egipcio.Egipcio;
  */
 public class HomemEscorpiao extends Egipcio {
     
+    public HomemEscorpiao(int energia, int peso, int idade, String nome) {
+        super(energia, peso, idade, nome);
+    }
+    
 }

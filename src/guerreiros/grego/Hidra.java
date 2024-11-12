@@ -12,4 +12,8 @@ import guerreiros.grego.Grego;
  */
 public class Hidra extends Grego{
     
+    public Hidra(int energia, int peso, int idade, String nome) {
+        super(energia, peso, idade, nome);
+    }
+    
 }

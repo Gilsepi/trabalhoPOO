@@ -12,4 +12,8 @@ import guerreiros.atlante.Atlante;
  */
 public class Prometeano extends Atlante {
     
+    public Prometeano(int energia, int peso, int idade, String nome) {
+        super(energia, peso, idade, nome);
+    }
+    
 }

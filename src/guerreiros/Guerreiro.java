@@ -8,6 +8,16 @@ public abstract class Guerreiro {
     private int idade;
     private String nome;
 
+    public Guerreiro(int energia, int peso, int idade, String nome) {
+        this.energia = energia;
+        this.peso = peso;
+        this.idade = idade;
+        this.nome = nome;
+    }
+ 
+    
+    
+    
     public int getEnergia() {
         return energia;
     }

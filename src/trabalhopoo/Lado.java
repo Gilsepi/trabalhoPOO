@@ -2,18 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package guerreiros.nordico;
+package trabalhopoo;
 
 import guerreiros.Guerreiro;
+import java.util.LinkedList;
 
 /**
  *
  * @author Gilsepi
  */
-public class Nordico extends Guerreiro {
-    
-    public Nordico(int energia, int peso, int idade, String nome) {
-        super(energia, peso, idade, nome);
+public class Lado {
+    private LinkedList<Fila> fila;
+
+    public Lado() {
+        this.fila = new LinkedList<>();
     }
+
+    public LinkedList<Fila> getFila() {
+        return fila;
+    }
+    
     
 }

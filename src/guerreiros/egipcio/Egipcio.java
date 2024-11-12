@@ -12,4 +12,8 @@ import guerreiros.Guerreiro;
  */
 public class Egipcio extends Guerreiro {
     
+    public Egipcio(int energia, int peso, int idade, String nome) {
+        super(energia, peso, idade, nome);
+    }
+    
 }

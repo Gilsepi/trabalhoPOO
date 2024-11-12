@@ -10,4 +10,8 @@ package guerreiros.nordico;
  */
 public class LoboDeFenris extends Nordico{
     
+    public LoboDeFenris(int energia, int peso, int idade, String nome) {
+        super(energia, peso, idade, nome);
+    }
+    
 }

@@ -12,4 +12,8 @@ import guerreiros.atlante.Atlante;
  */
 public class Satiro extends Atlante{
     
+    public Satiro(int energia, int peso, int idade, String nome) {
+        super(energia, peso, idade, nome);
+    }
+    
 }

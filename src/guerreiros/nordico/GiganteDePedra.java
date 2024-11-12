@@ -12,4 +12,8 @@ import guerreiros.nordico.Nordico;
  */
 public class GiganteDePedra extends Nordico{
     
+    public GiganteDePedra(int energia, int peso, int idade, String nome) {
+        super(energia, peso, idade, nome);
+    }
+    
 }

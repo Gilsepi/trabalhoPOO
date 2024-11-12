@@ -12,4 +12,8 @@ import guerreiros.grego.Grego;
  */
 public class Ciclope extends Grego {
     
+    public Ciclope(int energia, int peso, int idade, String nome) {
+        super(energia, peso, idade, nome);
+    }
+    
 }

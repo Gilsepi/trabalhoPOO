@@ -12,4 +12,8 @@ import guerreiros.atlante.Atlante;
  */
 public class Argus extends Atlante {
     
+    public Argus(int energia, int peso, int idade, String nome) {
+        super(energia, peso, idade, nome);
+    }
+    
 }
