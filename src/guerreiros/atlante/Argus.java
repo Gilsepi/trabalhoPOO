@@ -4,7 +4,9 @@
  */
 package guerreiros.atlante;
 
+import guerreiros.Guerreiro;
 import guerreiros.atlante.Atlante;
+import trabalhopoo.Arena;
 
 /**
  *
@@ -16,4 +18,12 @@ public class Argus extends Atlante {
         super(energia, peso, idade, nome);
     }
     
+    @Override
+    public void sofrerAtaque(Guerreiro g,int dano){
+        
+    }
+    @Override
+    public void atacar(Arena arena){
+        
+    }
 }

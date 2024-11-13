@@ -1,6 +1,8 @@
 
 package guerreiros;
 
+import trabalhopoo.Arena;
+
 
 public abstract class Guerreiro {
     private int energia;
@@ -15,8 +17,8 @@ public abstract class Guerreiro {
         this.nome = nome;
     }
  
-    
-    
+    public abstract void atacar(Arena arena);
+    public abstract void sofrerAtaque(Guerreiro g,int dano);
     
     public int getEnergia() {
         return energia;
@@ -49,5 +51,7 @@ public abstract class Guerreiro {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
+    
     
 }

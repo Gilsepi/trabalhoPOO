@@ -4,16 +4,28 @@
  */
 package guerreiros.grego;
 
+import guerreiros.Guerreiro;
 import guerreiros.grego.Grego;
+import trabalhopoo.Arena;
 
 /**
  *
  * @author Gilsepi
  */
 public class Hidra extends Grego{
+    private int danoDeAtaque;
     
-    public Hidra(int energia, int peso, int idade, String nome) {
+    public Hidra(int energia, int peso, int idade, String nome, int danoDeAtaque) {
         super(energia, peso, idade, nome);
+        this.danoDeAtaque = danoDeAtaque;
+    }
+    @Override
+    public void sofrerAtaque(Guerreiro g,int dano){
+        
     }
     
+    @Override
+    public void atacar(Arena arena){
+        
+    }
 }

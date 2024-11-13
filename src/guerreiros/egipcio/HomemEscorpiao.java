@@ -4,7 +4,9 @@
  */
 package guerreiros.egipcio;
 
+import guerreiros.Guerreiro;
 import guerreiros.egipcio.Egipcio;
+import trabalhopoo.Arena;
 
 /**
  *
@@ -12,8 +14,18 @@ import guerreiros.egipcio.Egipcio;
  */
 public class HomemEscorpiao extends Egipcio {
     
-    public HomemEscorpiao(int energia, int peso, int idade, String nome) {
-        super(energia, peso, idade, nome);
-    }
+    private int danoDeAtaque;
     
+    public HomemEscorpiao(int energia, int peso, int idade, String nome, int danoDeAtaque) {
+        super(energia, peso, idade, nome);
+        this.danoDeAtaque = danoDeAtaque;
+    }
+    @Override
+    public void sofrerAtaque(Guerreiro g,int dano){
+        
+    }
+    @Override
+    public void atacar(Arena arena){
+        
+    }
 }

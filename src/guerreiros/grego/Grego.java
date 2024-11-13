@@ -5,15 +5,22 @@
 package guerreiros.grego;
 
 import guerreiros.Guerreiro;
+import trabalhopoo.Arena;
 
 /**
  *
  * @author Gilsepi
  */
-public class Grego extends Guerreiro {
+public abstract class Grego extends Guerreiro {
     
     public Grego(int energia, int peso, int idade, String nome) {
         super(energia, peso, idade, nome);
     }
+
+    @Override
+    public abstract void sofrerAtaque(Guerreiro g,int dano);
+    @Override
+    public abstract void atacar(Arena arena);
+        
     
 }

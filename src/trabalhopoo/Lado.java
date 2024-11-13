@@ -4,7 +4,6 @@
  */
 package trabalhopoo;
 
-import guerreiros.Guerreiro;
 import java.util.LinkedList;
 
 /**
@@ -18,7 +17,7 @@ public class Lado {
         this.fila = new LinkedList<>();
     }
 
-    public LinkedList<Fila> getFila() {
+    public LinkedList<Fila> getFilas() {
         return fila;
     }
     

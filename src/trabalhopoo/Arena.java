@@ -4,6 +4,9 @@
  */
 package trabalhopoo;
 
+import guerreiros.Guerreiro;
+import java.util.LinkedList;
+
 /**
  *
  * @author Gilsepi
@@ -25,7 +28,18 @@ public class Arena {
         }
         
     }
-
+    
+    public LinkedList<Fila> getFilas(int lado){
+        return getLado(lado).getFilas();
+    }
+    
+     public LinkedList<Guerreiro> getLista(int lado,int fila){
+        return getFilas(lado).get(fila-1).getLista();
+    }
+    
+    public Guerreiro getGuerreiro(int lado,int fila,int posicao){
+        return getLista(lado,fila).get(posicao);
+    }
     
     
     
