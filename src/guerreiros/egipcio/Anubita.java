@@ -24,7 +24,7 @@ public class Anubita extends Egipcio{
         
     }
     @Override
-    public void atacar(Arena arena){
+    public void atacar(Arena arena,int lado,int fila){
         
     }
 }

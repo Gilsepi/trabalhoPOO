@@ -25,7 +25,7 @@ public class Hidra extends Grego{
     }
     
     @Override
-    public void atacar(Arena arena){
+    public void atacar(Arena arena,int lado,int fila){
         
     }
 }

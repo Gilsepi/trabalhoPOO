@@ -5,7 +5,6 @@
 package guerreiros.grego;
 
 import guerreiros.Guerreiro;
-import guerreiros.grego.Grego;
 import trabalhopoo.Arena;
 
 /**
@@ -21,13 +20,12 @@ public class Ciclope extends Grego {
         this.danoDeAtaque = danoDeAtaque;
     }
     
-    
+ 
     @Override
-    public void atacar(Arena arena){
+    public void atacar(Arena arena,int lado,int fila){
         
     }
         
-    
     
     @Override
     public void sofrerAtaque(Guerreiro g,int dano){

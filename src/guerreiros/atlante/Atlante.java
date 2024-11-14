@@ -15,7 +15,7 @@ public abstract class Atlante extends Guerreiro {
     }
     
     @Override
-    public abstract void atacar(Arena arena);
+    public abstract void atacar(Arena arena,int lado,int fila);
     @Override
     public abstract void sofrerAtaque(Guerreiro g,int dano);
 }

@@ -19,6 +19,18 @@ public class Gerenciador {
     private static int maiorIdade = 0;
     private static int somaPesoGN = 0;
     private static int somaPesoAE = 0;
+    
+    
+    
+    public void iniciarTurnos(Arena arena){
+        while(!arena.verificarVitoria()){
+            int ladoQueAtacaPrimeiro = randomizarTurno();
+            int outroLado = (ladoQueAtacaPrimeiro == 2) ? 1 : 2;
+            
+            
+        }
+    }
+    
 
     public static void printMaisVelho() {
         System.out.println("O " + maisVelho.getClass().getSimpleName() + " " + maisVelho.getNome() + " eh o mais velho e tem " + String.valueOf(maisVelho.getIdade()) + " anos");
@@ -37,8 +49,7 @@ public class Gerenciador {
         }
     }
     
-    
-  
+
     public static void listarFilas(Arena arena){
         int lado,fila;
          
@@ -78,6 +89,7 @@ public class Gerenciador {
        String arq, nome;
        FileInputStream file;
        Scanner scan;
+       
        for(lado=1; lado <=2; lado++){
            
            fila = 1;
@@ -88,19 +100,22 @@ public class Gerenciador {
                try{
                    file = new FileInputStream(arq);
                    scan = new Scanner(file);
-                   //System.out.println(arq);
+                   // adiciona uma nova fila, para o lado
                    arena.getFilas(lado).add(new Fila());
+                   
                    int posicao = 0;
                    while(scan.hasNext()){
+                        //Lê dos arquivos e guarda as informações dos guerreiros
                         tipo = scan.nextInt();
                         nome = scan.next();
                         idade = scan.nextInt();
                         peso = scan.nextInt();
+                        //Usa as informações guardadas para inserir um novo guerreiro no lugar certo
                         arena.getLista(lado,fila).add(Criador.criarGuerreiro(tipo,lado,nome,idade,peso,100));
                         
-                        
-                        
+                        // função para somar os pesos dos lados, a cada passagem do loop o peso do guerreiro é somado numa variavel estatica
                         somatorioDePesos(lado,arena.getGuerreiro(lado,fila,posicao));
+                        //função para definir qual guerreiro é o mais velho, a cada passagem compara a maiorIdade com uma nova idade e salva o guerreiro mais velho
                         definirGuerreiroMaisVelho(idade,arena.getGuerreiro(lado,fila,posicao));
                         
                         posicao++;
@@ -108,12 +123,12 @@ public class Gerenciador {
                    }
                    scan.close();
              
-               }catch(FileNotFoundException erro){
+               }catch(FileNotFoundException erro){ // Exceção que possibilita infinitas filas, se o arquivo delas exitirem
                    verificaLeitura = 1;
                }
                fila++;
                
-           }while(verificaLeitura != 1);
+           }while(verificaLeitura != 1);// sai do loop quando não encontrar mais arquivos de fila corretos
            
        }
        
@@ -122,10 +137,10 @@ public class Gerenciador {
        
  }
        public static int randomizarTurno(){
-          int num = (int)(Math.random()*100);
-          if(num % 2 == 0){
+          int num = (int)(Math.random()*100);//gera um número entre 0 e 99
+          if(num % 2 == 0){ // se o numero for par retorna 2, para o segundo lado começar atacando
               return 2;
-          }else{
+          }else{ // se for impar retorna 1, e o lado que ataca é o primeiro
               return 1;
           }
           

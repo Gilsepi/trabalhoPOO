@@ -17,7 +17,7 @@ public abstract class Guerreiro {
         this.nome = nome;
     }
  
-    public abstract void atacar(Arena arena);
+    public abstract void atacar(Arena arena,int lado,int fila);
     public abstract void sofrerAtaque(Guerreiro g,int dano);
     
     public int getEnergia() {

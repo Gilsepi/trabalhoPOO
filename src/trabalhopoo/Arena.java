@@ -5,6 +5,7 @@
 package trabalhopoo;
 
 import guerreiros.Guerreiro;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -29,6 +30,9 @@ public class Arena {
         
     }
     
+    
+    
+    
     public LinkedList<Fila> getFilas(int lado){
         return getLado(lado).getFilas();
     }
@@ -41,8 +45,45 @@ public class Arena {
         return getLista(lado,fila).get(posicao);
     }
     
+    public boolean verificarMorteGuerreiro(Guerreiro g){
+        if(g.getEnergia()==0){
+            return true;
+        } else{
+            return false;
+        }
+         
+    }
     
+    public boolean verificarVitoria(){
+       LinkedList<Fila> lado = getFilas(1);
+       boolean temGuerreiro = false;
+       int fila;
+       for(fila = 1;fila<=lado.size();fila++){
+           LinkedList<Guerreiro> lista = getLista(1,fila);
+           if (!lista.isEmpty()){
+               temGuerreiro = true;
+               break;
+           }
+          
+       }
+       
+       lado = getFilas(2);
+       for(fila = 1;fila<=lado.size();fila++){
+           LinkedList<Guerreiro> lista = getLista(2,fila);
+           if (!lista.isEmpty() && temGuerreiro == true){
+               return false;
+           }
+       }
+       
     
+        return true;
+    }
+    
+    public void levarGuerreiroParaFinalDaFila(int lado,int fila){
+        LinkedList<Guerreiro> lista = getLista(lado,fila);
+        Guerreiro aux = lista.removeFirst();
+        lista.addLast(aux);
+    }
     
     
 }

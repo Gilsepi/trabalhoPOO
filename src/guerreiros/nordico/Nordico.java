@@ -19,5 +19,5 @@ public abstract class Nordico extends Guerreiro {
     @Override
     public abstract void sofrerAtaque(Guerreiro g,int dano);
     @Override
-    public abstract void atacar(Arena arena);
+    public abstract void atacar(Arena arena,int lado,int fila);
 }
