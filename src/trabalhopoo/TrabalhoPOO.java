@@ -1,18 +1,10 @@
 package trabalhopoo;
 
-import java.io.*;
-import java.util.Scanner;
-import guerreiros.*;
-import guerreiros.grego.*;
-import guerreiros.nordico.*;
-import guerreiros.egipcio.*;
-import guerreiros.atlante.*;
-
 
 public class TrabalhoPOO {
 
     public static void main(String[] args) {
-       Gerenciador.instanciarArena();
+       /* Gerenciador.instanciarArena();
        Gerenciador.lerArquivo();
        System.out.println("Teste de coordenadas: " + Gerenciador.getGuerreiro(1,1,0).getNome());
        Gerenciador.printMaisVelho();
@@ -34,7 +26,8 @@ public class TrabalhoPOO {
        }
        
        Gerenciador.iniciarTurnos();
-       Gerenciador.printUltimoMorto();
+       Gerenciador.printUltimoMorto();*/
+       Gerenciador.iniciarJogo();
       
     }
     

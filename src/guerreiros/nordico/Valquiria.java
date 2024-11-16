@@ -9,10 +9,10 @@ import trabalhopoo.Arena;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class Valquiria extends Nordico{
-    private int valorCura;
+    private final int valorCura;
     
     public Valquiria(int energia, int peso, int idade, String nome, int danoDeAtaque, int valorCura) {
         super(energia, peso, idade, nome, danoDeAtaque);

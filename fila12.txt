@@ -1,4 +1,5 @@
 5 joao 25 56 
 6 maria 31 99 
 4 chico 102 12 
-3 bento 19 88
+5 cletos 24 66
+5 noztradamus 36 78

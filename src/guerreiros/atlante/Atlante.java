@@ -6,7 +6,7 @@ import trabalhopoo.Arena;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public abstract class Atlante extends Guerreiro {
     

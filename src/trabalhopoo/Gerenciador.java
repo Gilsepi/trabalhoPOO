@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class Gerenciador {
     private static Guerreiro maisVelho;
@@ -25,7 +25,7 @@ public class Gerenciador {
     private static Guerreiro ultimoGuerreiroAtacou;
     private static Lado ladoVencedor;
     private static Lado ladoPerdedor;
-    private static LinkedList<Guerreiro> guerreirosParaAdicionar;
+    private static LinkedList<Guerreiro> guerreirosParaAdicionar = new LinkedList<>();
     
     public static void instanciarArena(){
         LinkedList<Fila> filas1 = new LinkedList<>();
@@ -44,9 +44,19 @@ public class Gerenciador {
     // ATENCAO ATENCAOATENCAO ATENCAOATENCAO ATENCAOATENCAO ATENCAOATENCAO ATENCAO
     //ATENCAO ATENCAOATENCAO ATENCAOATENCAO ATENCAOATENCAO ATENCAOATENCAO ATENCAO
     
+    public static void printUltimoAtacou(){
+        System.out.println("O(A) " + ultimoGuerreiroAtacou.getClass().getSimpleName() + " " + ultimoGuerreiroAtacou.getNome() + " de " + String.valueOf(ultimoGuerreiroAtacou.getIdade()) + " anos e " + String.valueOf(ultimoGuerreiroAtacou.getPeso()) + " kilos transferiu o ultimo ataque no(a) " + ultimoGuerreiroMorto.getClass().getSimpleName() + " " + ultimoGuerreiroMorto.getNome() + " de " + String.valueOf(ultimoGuerreiroMorto.getIdade()) + " anos e " + String.valueOf(ultimoGuerreiroMorto.getPeso()) + " kilos");
+    }
+    
     public static void iniciarJogo(){
         instanciarArena();
-        
+        lerArquivo();
+        printMaisVelho();
+        printPesoDosLados();
+        listarFilas();
+        iniciarTurnos();
+        printUltimoMorto();
+        printUltimoAtacou();
     }
     
     
@@ -57,7 +67,7 @@ public class Gerenciador {
             int fila;
             int i;
             int filasAtacadas[];
-            //Guerreiro vetor[] = new Guerreiro
+            Guerreiro vetorGuerreiros[] = null;
             Guerreiro guerreiroAtacando;
             for(fila = 1;fila<=getFilas(ladoQueAtacaPrimeiro).size();fila++ ){
                 if(!getLista(ladoQueAtacaPrimeiro,fila).isEmpty()){
@@ -66,27 +76,53 @@ public class Gerenciador {
                     if(localizar == -1){
                         break;
                     }
+                    ultimoGuerreiroAtacou = guerreiroAtacando;
                     filasAtacadas = guerreiroAtacando.atacar(arena, fila, localizar , true);
                     if(verificarMorteGuerreiro(guerreiroAtacando)){
                         
-                        guerreiroAtacando.morrer(arena, fila);
-                        ultimoGuerreiroMorto = getLista(ladoQueAtacaPrimeiro,fila).remove(); 
+                        vetorGuerreiros = guerreiroAtacando.morrer(arena, fila);
+                        ultimoGuerreiroMorto = getLista(ladoQueAtacaPrimeiro,fila).remove();
+                        if(vetorGuerreiros != null){
+                            for(i=0;i<vetorGuerreiros.length;i++){
+                                guerreirosParaAdicionar.add(vetorGuerreiros[i]);
+                            }
+                        }
+                        
                     }
+                    for(Guerreiro g : guerreirosParaAdicionar){
+                        if(g != null)getLista(ladoQueAtacaPrimeiro,fila).add(g);
+                    }
+                    guerreirosParaAdicionar.removeAll(guerreirosParaAdicionar);
                     
-                    for(i = 0;filasAtacadas[i] != 0;i++){
+
+                    
+                    for(i = 0;i<filasAtacadas.length;i++){
+                        if(filasAtacadas[i]==0){
+                            break;
+                        }
                         LinkedList<Guerreiro> lista = getLista(outroLado,filasAtacadas[i]);
                         Iterator<Guerreiro> it = lista.iterator();
 
                         while (it.hasNext()) {
                             Guerreiro g = it.next();
                             if (verificarMorteGuerreiro(g)) {
-                                g.morrer(arena,filasAtacadas[i]);
+                                vetorGuerreiros = g.morrer(arena,filasAtacadas[i]);
                                 ultimoGuerreiroMorto = g;
                                 it.remove();  // Remove o guerreiro de forma segura
+                                if(vetorGuerreiros != null){
+                                    for(i=0;i<vetorGuerreiros.length;i++){
+                                        guerreirosParaAdicionar.add(vetorGuerreiros[i]);
+                                        
+                                    }
+                                 }
                             }
                             
                         }
-                        //lista.add(guerreiroAtacando);
+                        for(Guerreiro g : guerreirosParaAdicionar){
+                         if(g != null)lista.add(g);
+                        }
+                        guerreirosParaAdicionar.removeAll(guerreirosParaAdicionar);
+                        
                         
                     }
                 }
@@ -100,29 +136,52 @@ public class Gerenciador {
                     if(localizar == -1){
                         break;
                     }
-                    
+                    ultimoGuerreiroAtacou = guerreiroAtacando;
                     
                     filasAtacadas = guerreiroAtacando.atacar(arena, fila, localizar , false);
                     if(verificarMorteGuerreiro(guerreiroAtacando)){
-                        guerreiroAtacando.morrer(arena,fila);
+                        vetorGuerreiros = guerreiroAtacando.morrer(arena,fila);
                         ultimoGuerreiroMorto = getLista(outroLado,fila).removeFirst(); 
+                        if(vetorGuerreiros != null){
+                            for(i=0;i<vetorGuerreiros.length;i++){
+                                guerreirosParaAdicionar.add(vetorGuerreiros[i]);
+                            }
+                        }
                     }
                     
-                    for(i = 0;filasAtacadas[i] != 0;i++){
+                    for(Guerreiro g : guerreirosParaAdicionar){
+                        if(g != null)getLista(outroLado,fila).add(g);
+                    }
+                    guerreirosParaAdicionar.removeAll(guerreirosParaAdicionar);
+                    
+                    for(i = 0;i<filasAtacadas.length;i++){
+                        if(filasAtacadas[i]==0){
+                            break;
+                        }
                         LinkedList<Guerreiro> lista = getLista(ladoQueAtacaPrimeiro,filasAtacadas[i]);
                         Iterator<Guerreiro> it = lista.iterator();
                         
                         while (it.hasNext()) {
                             Guerreiro g = it.next();
                             if (verificarMorteGuerreiro(g)) {
-                                g.morrer(arena, filasAtacadas[i]);
+                                vetorGuerreiros = g.morrer(arena, filasAtacadas[i]);
                                 ultimoGuerreiroMorto = g;
                                 it.remove();  // Remove o guerreiro de forma segura
+                                if(vetorGuerreiros != null){
+                                    for(i=0;i<vetorGuerreiros.length;i++){
+                                            guerreirosParaAdicionar.add(vetorGuerreiros[i]);
+                                    }
+                                }
                             }
                             
                         }
+                        for(Guerreiro g : guerreirosParaAdicionar){
+                            if(g != null) lista.add(g);
+                        }
+                        guerreirosParaAdicionar.removeAll(guerreirosParaAdicionar);
                         
-                        //lista.add(guerreiroAtacando);
+                        
+                        
                     }
                     
                     

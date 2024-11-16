@@ -9,10 +9,10 @@ import java.util.LinkedList;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class Fila {
-    private LinkedList<Guerreiro> lista;
+    private final LinkedList<Guerreiro> lista;
 
     public Fila(LinkedList<Guerreiro> lista) {
         this.lista = lista;

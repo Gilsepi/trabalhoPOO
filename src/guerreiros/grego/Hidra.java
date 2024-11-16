@@ -5,12 +5,11 @@
 package guerreiros.grego;
 
 import guerreiros.Guerreiro;
-import guerreiros.grego.Grego;
 import trabalhopoo.Arena;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class Hidra extends Grego{
 

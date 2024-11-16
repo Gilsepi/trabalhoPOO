@@ -9,7 +9,7 @@ import trabalhopoo.Arena;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class Mumia extends Egipcio{
 
@@ -17,6 +17,20 @@ public class Mumia extends Egipcio{
     public Mumia(int energia, int peso, int idade, String nome, int danoDeAtaque) {
         super(energia, peso, idade, nome, danoDeAtaque);
   
+    }
+    
+    
+    @Override
+    public Guerreiro[] morrer(Arena arena,int fila ){
+       Guerreiro vetor[] = new Guerreiro[4];
+       this.setEnergia(0);
+       int i;
+       for(i=0;i<4;i++){
+           Guerreiro g = new Anubita(100,60,0,this.getNome(),15);
+           vetor[i] = g;
+       }
+       
+       return vetor;
     }
     
     @Override

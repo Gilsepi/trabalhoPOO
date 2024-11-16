@@ -10,7 +10,7 @@ import trabalhopoo.Arena;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class LoboDeFenris extends Nordico{
 

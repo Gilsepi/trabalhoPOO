@@ -5,13 +5,12 @@
 package guerreiros.atlante;
 
 import guerreiros.Guerreiro;
-import guerreiros.atlante.Atlante;
 import java.util.LinkedList;
 import trabalhopoo.Arena;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class Satiro extends Atlante{
     

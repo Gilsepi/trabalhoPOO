@@ -5,12 +5,11 @@
 package guerreiros.atlante;
 
 import guerreiros.Guerreiro;
-import guerreiros.atlante.Atlante;
 import trabalhopoo.Arena;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class Argus extends Atlante {
     

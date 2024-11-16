@@ -5,12 +5,11 @@
 package guerreiros.nordico;
 
 import guerreiros.Guerreiro;
-import guerreiros.nordico.Nordico;
 import trabalhopoo.Arena;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class GiganteDePedra extends Nordico{
 

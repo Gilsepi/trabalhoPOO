@@ -8,12 +8,12 @@ import java.util.LinkedList;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class Lado {
-    private LinkedList<Fila> fila;
+    private final LinkedList<Fila> fila;
     private int flagFilaDoGuerreiroAlvo = -1;
-    private String nome;
+    private final String nome;
 
     public Lado(LinkedList<Fila> fila,String nome) {
         this.fila = fila;

@@ -5,12 +5,11 @@
 package guerreiros.egipcio;
 
 import guerreiros.Guerreiro;
-import guerreiros.egipcio.Egipcio;
 import trabalhopoo.Arena;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class HomemEscorpiao extends Egipcio {
     

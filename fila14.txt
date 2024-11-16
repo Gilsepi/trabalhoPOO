@@ -1,0 +1,6 @@
+6 Lucas 30 78
+2 Julia 24 62
+5 Bruno 33 85
+1 Beatriz 19 57
+4 Gustavo 44 82
+6 Lucas 33 80

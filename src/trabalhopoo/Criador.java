@@ -10,7 +10,7 @@ import guerreiros.grego.*;
 import guerreiros.*;
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class Criador {
     

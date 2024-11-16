@@ -8,11 +8,11 @@ package trabalhopoo;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class Arena {
-    private  Lado lado1; 
-    private  Lado lado2;
+    private final  Lado lado1; 
+    private final  Lado lado2;
 
     public Arena(Lado lado1,Lado lado2) {
         this.lado1 = lado1;

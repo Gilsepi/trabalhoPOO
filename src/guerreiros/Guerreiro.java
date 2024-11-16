@@ -86,8 +86,9 @@ public abstract class Guerreiro {
         this.envenenado = envenenado;
     }
 
-    public void morrer(Arena arena, int fila){
+    public Guerreiro[] morrer(Arena arena, int fila){
        this.setEnergia(0);
+       return null;
     }
     
     

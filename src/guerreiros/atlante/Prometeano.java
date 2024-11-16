@@ -5,16 +5,14 @@
 package guerreiros.atlante;
 
 import guerreiros.Guerreiro;
-import java.util.Iterator;
-import java.util.LinkedList;
 import trabalhopoo.Arena;
 
 /**
  *
- * @author Gilsepi
+ * @author Gilsepi e Matheus Pereira
  */
 public class Prometeano extends Atlante {
-    private int vidaQueNasceu;
+    private final int vidaQueNasceu;
     
     public Prometeano(int energia, int peso, int idade, String nome, int danoDeAtaque,int vidaQueNasceu) {
         super(energia, peso, idade, nome,danoDeAtaque);
@@ -26,15 +24,17 @@ public class Prometeano extends Atlante {
     }
     
     @Override
-    public void morrer(Arena arena,int fila){
+    public Guerreiro[] morrer(Arena arena,int fila){
+        Guerreiro vetor[] = new Guerreiro[2];
         this.setEnergia(0);
-        /*if(this.getVidaQueNasceu()>1){
-            Guerreiro g = new Prometeano(((int)(this.getVidaQueNasceu()/2)),this.getPeso(),this.getIdade(), this.getNome().concat(String.valueOf(1)),this.getDanoDeAtaque(),((int)(this.getVidaQueNasceu()/2)));
-            Guerreiro h = new Prometeano(((int)(this.getVidaQueNasceu()/2)),this.getPeso(),this.getIdade(), this.getNome().concat(String.valueOf(2)),this.getDanoDeAtaque(),((int)(this.getVidaQueNasceu()/2)));
-            LinkedList<Guerreiro> lista = arena.getLado2().getFilas().get(fila-1).getLista();
-            lista.addLast(g);
-            lista.addLast(h);
-        }*/
+        if(this.getVidaQueNasceu()>1){
+            int i;
+            for(i = 0;i<2;i++){
+               Guerreiro g = new Prometeano(((int)(this.getVidaQueNasceu()/2)),this.getPeso(),this.getIdade(), this.getNome().concat(String.valueOf(i+1)),this.getDanoDeAtaque(),((int)(this.getVidaQueNasceu()/2)));
+               vetor[i] = g;
+            }
+        }
+        return vetor;
     }
     
     @Override
