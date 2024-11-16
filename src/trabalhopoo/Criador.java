@@ -20,19 +20,20 @@ public class Criador {
             switch(tipo){
                 case 1 -> guerreiro = new Ciclope(energia,peso,idade,nome,35);
                 case 2 -> guerreiro = new Manticora(energia,peso,idade,nome,30);
-                case 3 -> guerreiro = new Hidra(energia,peso,idade,nome,50);
-                case 4 -> guerreiro = new Valquiria(energia,peso,idade,nome,20);
+                case 3 -> guerreiro = new Hidra(energia,peso,idade,nome,50,1);
+                case 4 -> guerreiro = new Valquiria(energia,peso,idade,nome,20,20);
                 case 5 -> guerreiro = new LoboDeFenris(energia,peso,idade,nome,40);
-                case 6 -> guerreiro = new GiganteDePedra(energia,peso,idade,nome,30);
+                case 6 -> guerreiro = new GiganteDePedra(300,peso,idade,nome,30);
             }
         }else{
             switch(tipo){
-                case 1 -> guerreiro = new Prometeano(energia,peso,idade,nome,10);
+                case 1 -> guerreiro = new Prometeano(energia,peso,idade,nome,10,energia);
                 case 2 -> guerreiro = new Satiro(energia,peso,idade,nome,10);
-                case 3 -> guerreiro = new Argus(60,peso,idade,nome);
+                case 3 -> guerreiro = new Argus(60,peso,idade,nome,0);
                 case 4 -> guerreiro = new Anubita(energia,peso,idade,nome,15);
                 case 5 -> guerreiro = new HomemEscorpiao(energia,peso,idade,nome,20);
                 case 6 -> guerreiro = new Mumia(energia,peso,idade,nome,50);
+                case 7 -> guerreiro = new MortoVivo(energia,peso,idade,nome,5);
             }
         }
         return guerreiro;

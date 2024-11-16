@@ -13,19 +13,37 @@ import trabalhopoo.Arena;
  * @author Gilsepi
  */
 public class Hidra extends Grego{
-    private int danoDeAtaque;
+
+    private int qtdCabecas;
     
-    public Hidra(int energia, int peso, int idade, String nome, int danoDeAtaque) {
-        super(energia, peso, idade, nome);
-        this.danoDeAtaque = danoDeAtaque;
-    }
-    @Override
-    public void sofrerAtaque(Guerreiro g,int dano){
-        
+    public Hidra(int energia, int peso, int idade, String nome, int danoDeAtaque, int qtdCabeca) {
+        super(energia, peso, idade, nome, danoDeAtaque);
+        this.qtdCabecas = qtdCabeca;
     }
     
+    
     @Override
-    public void atacar(Arena arena,int lado,int fila){
+    public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
+        int atacados[] = new int[arena.getLado2().getFilas().size()];
+        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst();
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque() + (5*this.getQtdCabecas()));
+        atacados[0] = fila;
         
+        if(guerreiroAtacado.getEnergia()<=0){
+            this.setQtdCabecas(this.getQtdCabecas()+1);
+            this.receberCura(20);
+        }
+        this.verificarVeneno();
+        
+        
+        return atacados;
+    }
+
+    public void setQtdCabecas(int qtdCabecas) {
+        this.qtdCabecas = qtdCabecas;
+    }
+
+    public int getQtdCabecas() {
+        return qtdCabecas;
     }
 }

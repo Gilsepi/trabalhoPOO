@@ -12,28 +12,30 @@ import guerreiros.atlante.*;
 public class TrabalhoPOO {
 
     public static void main(String[] args) {
-       Arena arena = new Arena();
-       Gerenciador.lerArquivo(arena);
-       System.out.println("Teste de coordenadas: " + arena.getGuerreiro(1,1,0).getNome());
+       Gerenciador.instanciarArena();
+       Gerenciador.lerArquivo();
+       System.out.println("Teste de coordenadas: " + Gerenciador.getGuerreiro(1,1,0).getNome());
        Gerenciador.printMaisVelho();
-       Gerenciador.listarFilas(arena);
        Gerenciador.printPesoDosLados();
-       Guerreiro g = arena.getGuerreiro(1,1,0);
+       Guerreiro g = Gerenciador.getGuerreiro(1,1,0);
        System.out.println(g.getEnergia());
-       g.sofrerAtaque(g,60);
+       g.sofrerDano(60);
        System.out.println(g.getEnergia());
-       arena.getLista(1,2).remove();
-
-       Gerenciador.listarFilas(arena);
+       int valor = Gerenciador.localizarAtaque(Gerenciador.getLado(2),2,1);
+       System.out.println(valor);
+       Gerenciador.listarFilas();
        for(int i= 0;i<5;i++){
            System.out.println(Gerenciador.randomizarTurno());
        }
-       if(!arena.verificarVitoria()){
+       if(!Gerenciador.verificarVitoria()){
          System.out.println("Nao ha vitoria");
        }else{
            System.out.println("Vitoria");
        }
        
+       Gerenciador.iniciarTurnos();
+       Gerenciador.printUltimoMorto();
+      
     }
     
 }

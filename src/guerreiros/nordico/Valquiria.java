@@ -12,18 +12,37 @@ import trabalhopoo.Arena;
  * @author Gilsepi
  */
 public class Valquiria extends Nordico{
-    private int danoDeAtaque;
+    private int valorCura;
     
-    public Valquiria(int energia, int peso, int idade, String nome, int danoDeAtaque) {
-        super(energia, peso, idade, nome);
-        this.danoDeAtaque = danoDeAtaque; 
+    public Valquiria(int energia, int peso, int idade, String nome, int danoDeAtaque, int valorCura) {
+        super(energia, peso, idade, nome, danoDeAtaque);
+        this.valorCura = valorCura;
+
    }
-    @Override
-    public void sofrerAtaque(Guerreiro g,int dano){
-        
+
+    public int getValorCura() {
+        return valorCura;
     }
+    
     @Override
-    public void atacar(Arena arena,int lado,int fila){
+    public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
+        int atacados[] = new int[arena.getLado2().getFilas().size()];
+        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst();
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+        atacados[0] = fila;
         
+        if(arena.getLado1().getFilas().get(filaAtacando-1).getLista().size()>1){
+            Guerreiro guerreiroCurado = arena.getLado1().getFilas().get(filaAtacando-1).getLista().get(1);
+            this.curar(guerreiroCurado);
+        }
+        
+        this.verificarVeneno();
+        
+        return atacados;
+    }
+    
+    
+    private void curar(Guerreiro g){
+        g.receberCura(getValorCura());
     }
 }

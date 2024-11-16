@@ -14,8 +14,8 @@ import java.util.LinkedList;
 public class Fila {
     private LinkedList<Guerreiro> lista;
 
-    public Fila() {
-        this.lista = new LinkedList<>();
+    public Fila(LinkedList<Guerreiro> lista) {
+        this.lista = lista;
     }
 
     public LinkedList<Guerreiro> getLista() {

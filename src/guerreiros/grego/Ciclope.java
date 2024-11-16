@@ -5,6 +5,7 @@
 package guerreiros.grego;
 
 import guerreiros.Guerreiro;
+import java.util.LinkedList;
 import trabalhopoo.Arena;
 
 /**
@@ -12,29 +13,39 @@ import trabalhopoo.Arena;
  * @author Gilsepi
  */
 public class Ciclope extends Grego {
-    private int danoDeAtaque;
+
     
     
     public Ciclope(int energia, int peso, int idade, String nome, int danoDeAtaque) {
-        super(energia, peso, idade, nome);
-        this.danoDeAtaque = danoDeAtaque;
+        super(energia, peso, idade, nome, danoDeAtaque);
+
     }
     
  
     @Override
-    public void atacar(Arena arena,int lado,int fila){
+    public int[] atacar(Arena arena,int filaAtacandoado,int fila,boolean primeiroLadoAtacando){
+        int atacados[] = new int[arena.getLado2().getFilas().size()];
+        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst();
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+        atacados[0] = fila;
         
-    }
-        
-    
-    @Override
-    public void sofrerAtaque(Guerreiro g,int dano){
-        g.setEnergia(g.getEnergia() - dano);
-        if(g.getEnergia() < 0){
-            g.setEnergia(0);
+        if(primeiroLadoAtacando){
+            this.empurrarParaFinalFila(arena,fila);
         }
+        
+        this.verificarVeneno();
+        
+        
+        return atacados;
     }
     
+    private void empurrarParaFinalFila(Arena arena,int fila){
+        LinkedList<Guerreiro> lista = arena.getLado2().getFilas().get(fila-1).getLista();
+        Guerreiro aux = lista.removeFirst();
+        lista.addLast(aux);  
+                
+    }
+        
     
-    
+
 }

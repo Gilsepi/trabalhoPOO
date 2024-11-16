@@ -9,16 +9,42 @@ public abstract class Guerreiro {
     private int peso;
     private int idade;
     private String nome;
+    private int envenenado;
+    private int danoDeAtaque;
 
-    public Guerreiro(int energia, int peso, int idade, String nome) {
+    
+
+    public Guerreiro(int energia, int peso, int idade, String nome, int danoDeAtaque) {
         this.energia = energia;
         this.peso = peso;
         this.idade = idade;
         this.nome = nome;
+        this.danoDeAtaque = danoDeAtaque;
+        this.envenenado = 0;
     }
  
-    public abstract void atacar(Arena arena,int lado,int fila);
-    public abstract void sofrerAtaque(Guerreiro g,int dano);
+    public abstract int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando); 
+    
+    public void sofrerDano(int dano){
+        this.setEnergia(this.getEnergia() - dano);
+    }
+    
+    public void verificarVeneno(){
+        if(this.getEnvenenado()!= 0){
+            this.sofrerDano(this.getEnvenenado());
+        }
+    }
+    
+    public void receberCura(int cura){
+        this.setEnergia(this.getEnergia() + cura);
+    }
+    
+    public int getDanoDeAtaque() {
+        return danoDeAtaque;
+    }
+    public int getEnvenenado() {
+        return envenenado;
+    }
     
     public int getEnergia() {
         return energia;
@@ -52,6 +78,17 @@ public abstract class Guerreiro {
         this.nome = nome;
     }
     
+    public void setDanoDeAtaque(int danoDeAtaque) {
+        this.danoDeAtaque = danoDeAtaque;
+    }
+
+    public void setEnvenenado(int envenenado) {
+        this.envenenado = envenenado;
+    }
+
+    public void morrer(Arena arena, int fila){
+       this.setEnergia(0);
+    }
     
     
 }

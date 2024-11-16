@@ -5,7 +5,6 @@
 package guerreiros.egipcio;
 
 import guerreiros.Guerreiro;
-import guerreiros.egipcio.Egipcio;
 import trabalhopoo.Arena;
 
 /**
@@ -13,18 +12,27 @@ import trabalhopoo.Arena;
  * @author Gilsepi
  */
 public class Mumia extends Egipcio{
-    private int danoDeAtaque;
+
     
     public Mumia(int energia, int peso, int idade, String nome, int danoDeAtaque) {
-        super(energia, peso, idade, nome);
-        this.danoDeAtaque = danoDeAtaque;
+        super(energia, peso, idade, nome, danoDeAtaque);
+  
     }
+    
     @Override
-    public void sofrerAtaque(Guerreiro g,int dano){
+    public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
+        int atacados[] = new int[arena.getLado1().getFilas().size()];
+        Guerreiro guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getFirst();
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+        atacados[0] = fila;
         
-    }
-    @Override
-    public void atacar(Arena arena,int lado,int fila){
+        if(guerreiroAtacado.getEnergia()<=0){
+           Guerreiro mortoVivo = new MortoVivo(100,guerreiroAtacado.getPeso(),guerreiroAtacado.getIdade(),guerreiroAtacado.getNome(),5);
+           arena.getLado2().getFilas().get(filaAtacando-1).getLista().add(mortoVivo);
+        }
         
+        this.verificarVeneno();
+        return atacados;
+            
     }
 }

@@ -13,18 +13,26 @@ import trabalhopoo.Arena;
  * @author Gilsepi
  */
 public class GiganteDePedra extends Nordico{
-    private int danoDeAtaque;
+
     
     public GiganteDePedra(int energia, int peso, int idade, String nome, int danoDeAtaque) {
-        super(energia, peso, idade, nome);
-        this.danoDeAtaque = danoDeAtaque;
+        super(energia, peso, idade, nome, danoDeAtaque);
     }
+    
     @Override
-    public void sofrerAtaque(Guerreiro g,int dano){
+    public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
+        int atacados[] = new int[arena.getLado2().getFilas().size()];
+        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst();
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+        atacados[0] = fila;
         
-    }
-    @Override
-    public void atacar(Arena arena,int lado,int fila){
+        if(primeiroLadoAtacando == true){
+            arena.getLado1().setFlagFilaDoGuerreiroAlvo(filaAtacando);
+        }
         
+        
+        this.verificarVeneno();
+        
+        return atacados;
     }
 }

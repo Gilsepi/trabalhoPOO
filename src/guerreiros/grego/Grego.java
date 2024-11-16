@@ -13,14 +13,20 @@ import trabalhopoo.Arena;
  */
 public abstract class Grego extends Guerreiro {
     
-    public Grego(int energia, int peso, int idade, String nome) {
-        super(energia, peso, idade, nome);
+    public Grego(int energia, int peso, int idade, String nome, int danoDeAtaque) {
+        super(energia, peso, idade, nome, danoDeAtaque);
     }
 
     @Override
-    public abstract void sofrerAtaque(Guerreiro g,int dano);
+    public void receberCura(int cura){
+        this.setEnergia(this.getEnergia() + cura);
+        if(this.getEnergia()>100){
+            this.setEnergia(100);
+        }
+    }
+
     @Override
-    public abstract void atacar(Arena arena,int lado,int fila);
+    public abstract int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando);
         
     
 }

@@ -10,12 +10,11 @@ import trabalhopoo.Arena;
  */
 public abstract class Atlante extends Guerreiro {
     
-    public Atlante(int energia, int peso, int idade, String nome) {
-        super(energia, peso, idade, nome);
+    public Atlante(int energia, int peso, int idade, String nome, int danoDeAtaque) {
+        super(energia, peso, idade, nome, danoDeAtaque);
     }
     
     @Override
-    public abstract void atacar(Arena arena,int lado,int fila);
-    @Override
-    public abstract void sofrerAtaque(Guerreiro g,int dano);
+    public abstract int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando);
+    
 }

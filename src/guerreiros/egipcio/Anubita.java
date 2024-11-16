@@ -5,7 +5,6 @@
 package guerreiros.egipcio;
 
 import guerreiros.Guerreiro;
-import guerreiros.egipcio.Egipcio;
 import trabalhopoo.Arena;
 
 /**
@@ -13,18 +12,28 @@ import trabalhopoo.Arena;
  * @author Gilsepi
  */
 public class Anubita extends Egipcio{
-    private int danoDeAtaque;
+
     
     public Anubita(int energia, int peso, int idade, String nome, int danoDeAtaque) {
-        super(energia, peso, idade, nome);
-        this.danoDeAtaque = danoDeAtaque;
+        super(energia, peso, idade, nome, danoDeAtaque);
     }
+   
     @Override
-    public void sofrerAtaque(Guerreiro g,int dano){
+    public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
+        int atacados[] = new int[arena.getLado1().getFilas().size()];
         
-    }
-    @Override
-    public void atacar(Arena arena,int lado,int fila){
+        Guerreiro guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getFirst();
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+       
+        guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getLast();
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
         
+        
+        atacados[0] = fila;
+        
+
+        this.verificarVeneno();
+        
+        return atacados;
     }
 }

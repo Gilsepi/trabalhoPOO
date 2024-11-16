@@ -14,18 +14,24 @@ import trabalhopoo.Arena;
  */
 public class HomemEscorpiao extends Egipcio {
     
-    private int danoDeAtaque;
-    
     public HomemEscorpiao(int energia, int peso, int idade, String nome, int danoDeAtaque) {
-        super(energia, peso, idade, nome);
-        this.danoDeAtaque = danoDeAtaque;
+        super(energia, peso, idade, nome, danoDeAtaque);
+    
     }
+    
     @Override
-    public void sofrerAtaque(Guerreiro g,int dano){
+    public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
+        int atacados[] = new int[arena.getLado1().getFilas().size()];
+        Guerreiro guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getFirst();
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+        guerreiroAtacado.setEnvenenado(5);
+        atacados[0] = fila;
         
-    }
-    @Override
-    public void atacar(Arena arena,int lado,int fila){
         
+        
+       
+        this.verificarVeneno();
+     
+        return atacados;
     }
 }
