@@ -22,11 +22,11 @@ public class Anubita extends Egipcio{
     public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
         int atacados[] = new int[arena.getLado1().getFilas().size()];
         
-        Guerreiro guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getFirst();
-        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+        Guerreiro guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getFirst(); // Localiza o guerreiro a ser atacado 1° primeiro da fila
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque()); // Ataca
        
-        guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getLast();
-        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+        guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getLast(); // Localiza o guerreiro a ser atacado último da fila
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque()); // Ataca
         
         
         atacados[0] = fila;

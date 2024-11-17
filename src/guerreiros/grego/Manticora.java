@@ -24,27 +24,27 @@ public class Manticora extends Grego{
         int atacados[] = new int[arena.getLado2().getFilas().size()];
         
         // guerreiro atacado na fila principal
-        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst();
-        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst(); // Localiza o guerreiro a ser atacado
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque()); // Ataca
         atacados[0] = fila;
         
         // guerreiro atacado na fila abaixo
-        if(fila != 1){
-            if(!arena.getLado2().getFilas().get(fila-2).getLista().isEmpty()){
-                guerreiroAtacado = arena.getLado2().getFilas().get(fila-2).getLista().getFirst();
-                guerreiroAtacado.sofrerDano(this.getDanoDeAtaque()/2);
+        if(fila != 1){ // Verifica se existe fila abaixo
+            if(!arena.getLado2().getFilas().get(fila-2).getLista().isEmpty()){ // Se fila não vazia, ataca
+                guerreiroAtacado = arena.getLado2().getFilas().get(fila-2).getLista().getFirst(); // Localiza o guerreiro a ser atacado
+                guerreiroAtacado.sofrerDano(this.getDanoDeAtaque()/2); // Ataca, metade de seu dano
                 atacados[1] = fila-1;
             }
             
         }
         
         //guerreiro atacado na fila acima             
-        if(fila != arena.getLado2().getFilas().size()){
-            if(!arena.getLado2().getFilas().get(fila).getLista().isEmpty()){
-                guerreiroAtacado = arena.getLado2().getFilas().get(fila).getLista().getFirst();
-                guerreiroAtacado.sofrerDano(this.getDanoDeAtaque()/2);
+        if(fila != arena.getLado2().getFilas().size()){ // Verifica se existe fila acima
+            if(!arena.getLado2().getFilas().get(fila).getLista().isEmpty()){ // Se fila não vazia, ataca
+                guerreiroAtacado = arena.getLado2().getFilas().get(fila).getLista().getFirst(); // Localiza o guerreiro a ser atacado
+                guerreiroAtacado.sofrerDano(this.getDanoDeAtaque()/2); // Ataca, metade de seu dano
                 
-                if(atacados[1]==0){
+                if(atacados[1]==0){ 
                     atacados[1] = fila+1;
                 }else{
                     atacados[2] = fila+1;
@@ -53,9 +53,6 @@ public class Manticora extends Grego{
         }
         
         this.verificarVeneno();
-        
-        
-        
         
         return atacados;
     }

@@ -12,12 +12,13 @@ import java.util.LinkedList;
  */
 public class Lado {
     private final LinkedList<Fila> fila;
-    private int flagFilaDoGuerreiroAlvo = -1;
+    private int flagFilaDoGuerreiroAlvo;
     private final String nome;
 
     public Lado(LinkedList<Fila> fila,String nome) {
         this.fila = fila;
         this.nome = nome;
+        this.flagFilaDoGuerreiroAlvo = -1;
     }
 
     public String getNome() {

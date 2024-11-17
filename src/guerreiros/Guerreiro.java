@@ -20,19 +20,27 @@ public abstract class Guerreiro {
         this.idade = idade;
         this.nome = nome;
         this.danoDeAtaque = danoDeAtaque;
-        this.envenenado = 0;
+        this.envenenado = 0; 
     }
  
+    //O método atacar retorna um vetor de inteiros que representam os indices das filas atacadas
     public abstract int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando); 
+    
     
     public void sofrerDano(int dano){
         this.setEnergia(this.getEnergia() - dano);
     }
     
-    public void verificarVeneno(){
+    public void verificarVeneno(){ // função chamada em atacar() de todos os guerreiros, para ele tomar o dano do veneno caso esteja envenenado
         if(this.getEnvenenado()!= 0){
             this.sofrerDano(this.getEnvenenado());
         }
+    }
+    
+    //O método morrer retorna um vetor de Guerreiros, pois alguns guerreiros quando morrem instânciam outros guerreiros
+    public Guerreiro[] morrer(Arena arena, int fila){
+       this.setEnergia(0);
+       return null;
     }
     
     public void receberCura(int cura){
@@ -85,11 +93,12 @@ public abstract class Guerreiro {
     public void setEnvenenado(int envenenado) {
         this.envenenado = envenenado;
     }
-
-    public Guerreiro[] morrer(Arena arena, int fila){
-       this.setEnergia(0);
-       return null;
+    
+    @Override
+    public String toString(){
+        return this.getClass().getSimpleName() + " " + this.getNome() + " de " + String.valueOf(this.getIdade()) + " anos e " + String.valueOf(this.getPeso()) + " kilos";
     }
+    
     
     
 }

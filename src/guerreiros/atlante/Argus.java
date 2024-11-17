@@ -21,8 +21,8 @@ public class Argus extends Atlante {
     @Override
     public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
         int atacados[] = new int[arena.getLado1().getFilas().size()];
-        Guerreiro guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getFirst();
-        guerreiroAtacado.sofrerDano(guerreiroAtacado.getEnergia());
+        Guerreiro guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getFirst(); // Localiza o guerreiro a ser atacado
+        guerreiroAtacado.sofrerDano(guerreiroAtacado.getEnergia()); // O Argus da HitKill então o dano dele sempre será a vida do guerreiro atacado
         atacados[0] = fila;
  
         

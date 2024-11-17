@@ -18,7 +18,7 @@ public abstract class Grego extends Guerreiro {
     }
 
     @Override
-    public void receberCura(int cura){
+    public void receberCura(int cura){ // Gregos não podem ter mais de 100 de energia
         this.setEnergia(this.getEnergia() + cura);
         if(this.getEnergia()>100){
             this.setEnergia(100);

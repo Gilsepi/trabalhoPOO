@@ -1,39 +1,26 @@
 package trabalhopoo;
 
+import java.util.Scanner;
+
 
 public class TrabalhoPOO {
 
     public static void main(String[] args) {
-       /* Gerenciador.instanciarArena();
-       Gerenciador.lerArquivo();
-       System.out.println("Teste de coordenadas: " + Gerenciador.getGuerreiro(1,1,0).getNome());
-       Gerenciador.printMaisVelho();
-       Gerenciador.printPesoDosLados();
-       Guerreiro g = Gerenciador.getGuerreiro(1,1,0);
-       System.out.println(g.getEnergia());
-       g.sofrerDano(60);
-       System.out.println(g.getEnergia());
-       int valor = Gerenciador.localizarAtaque(Gerenciador.getLado(2),2,1);
-       System.out.println(valor);
-       Gerenciador.listarFilas();
-       for(int i= 0;i<5;i++){
-           System.out.println(Gerenciador.randomizarTurno());
-       }
-       if(!Gerenciador.verificarVitoria()){
-         System.out.println("Nao ha vitoria");
-       }else{
-           System.out.println("Vitoria");
-       }
+       Scanner scanner = new Scanner(System.in);
+       System.out.println("Bem vindo ao jogo Age Of Mythology Retold Arena");
+       System.out.print("\n\n\t\tJOGAR\n\n\n\n");
+       System.out.print("Pressione enter...");
+       scanner.nextLine();
+       do{
+           Gerenciador.iniciarJogo();
+           System.out.print("\n\nDeseja jogar novamente sim[s] ou nao[n]: ");
+       }while(scanner.next().toLowerCase().equals("s"));
        
-       Gerenciador.iniciarTurnos();
-       Gerenciador.printUltimoMorto();*/
-       Gerenciador.iniciarJogo();
       
     }
-    
+   
 }
     
 
-// criar as filas para elas apontarem para os guerreiros
     
  

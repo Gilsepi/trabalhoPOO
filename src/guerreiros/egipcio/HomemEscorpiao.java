@@ -21,9 +21,9 @@ public class HomemEscorpiao extends Egipcio {
     @Override
     public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
         int atacados[] = new int[arena.getLado1().getFilas().size()];
-        Guerreiro guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getFirst();
-        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
-        guerreiroAtacado.setEnvenenado(5);
+        Guerreiro guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getFirst(); // Localiza o guerreiro a ser atacado
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque()); // Ataca
+        guerreiroAtacado.setEnvenenado(5); // Envenena o guerreiro
         atacados[0] = fila;
         
         

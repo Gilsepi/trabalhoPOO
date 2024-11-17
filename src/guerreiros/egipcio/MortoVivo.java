@@ -21,10 +21,9 @@ public class MortoVivo extends Egipcio {
     public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
         int atacados[] = new int[arena.getLado1().getFilas().size()];
         
-        Guerreiro guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getFirst();
-        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+        Guerreiro guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getFirst(); // Localiza o guerreiro a ser atacado
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque()); // Ataca
         
-        // erro no atacar do mortoVivo
 
         atacados[0] = fila;
         this.verificarVeneno();

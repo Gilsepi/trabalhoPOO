@@ -21,12 +21,12 @@ public class GiganteDePedra extends Nordico{
     @Override
     public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
         int atacados[] = new int[arena.getLado2().getFilas().size()];
-        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst();
-        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst(); // Localiza o guerreiro a ser atacado
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());// Ataca
         atacados[0] = fila;
         
-        if(primeiroLadoAtacando == true){
-            arena.getLado1().setFlagFilaDoGuerreiroAlvo(filaAtacando);
+        if(primeiroLadoAtacando == true){ // Se for o primeiro lado a atacar usa o "provocar"  
+            arena.getLado1().setFlagFilaDoGuerreiroAlvo(filaAtacando); // Altera a flag de alvo do lado dele para seu indice de fila
         }
         
         

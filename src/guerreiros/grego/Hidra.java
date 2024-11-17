@@ -24,11 +24,11 @@ public class Hidra extends Grego{
     @Override
     public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
         int atacados[] = new int[arena.getLado2().getFilas().size()];
-        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst();
-        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque() + (5*this.getQtdCabecas()));
+        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst(); // Localiza o guerreiro a ser atacado
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque() + (5*this.getQtdCabecas())); // Ataca, dano aumentado por quantidade de cabeças
         atacados[0] = fila;
         
-        if(guerreiroAtacado.getEnergia()<=0){
+        if(guerreiroAtacado.getEnergia()<=0){ // Quando mata, gera uma nova cabeça na Hidra e cura 20 de energia
             this.setQtdCabecas(this.getQtdCabecas()+1);
             this.receberCura(20);
         }

@@ -27,13 +27,13 @@ public class Valquiria extends Nordico{
     @Override
     public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
         int atacados[] = new int[arena.getLado2().getFilas().size()];
-        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst();
-        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst(); // Localiza o guerreiro a ser atacado
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque()); // Ataca
         atacados[0] = fila;
         
-        if(arena.getLado1().getFilas().get(filaAtacando-1).getLista().size()>1){
-            Guerreiro guerreiroCurado = arena.getLado1().getFilas().get(filaAtacando-1).getLista().get(1);
-            this.curar(guerreiroCurado);
+        if(arena.getLado1().getFilas().get(filaAtacando-1).getLista().size()>1){ // Veridica se tem guerreiro atrás dela
+            Guerreiro guerreiroCurado = arena.getLado1().getFilas().get(filaAtacando-1).getLista().get(1); // Localiza o guerreiro aliado
+            this.curar(guerreiroCurado); // Cura o guerreiro
         }
         
         this.verificarVeneno();

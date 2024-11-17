@@ -23,13 +23,13 @@ public class Ciclope extends Grego {
     
  
     @Override
-    public int[] atacar(Arena arena,int filaAtacandoado,int fila,boolean primeiroLadoAtacando){
+    public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
         int atacados[] = new int[arena.getLado2().getFilas().size()];
-        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst();
-        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+        Guerreiro guerreiroAtacado = arena.getLado2().getFilas().get(fila-1).getLista().getFirst(); // Localiza o guerreiro a ser atacado
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque()); // Ataca
         atacados[0] = fila;
         
-        if(primeiroLadoAtacando){
+        if(primeiroLadoAtacando){ // Empurra o guerreiro atacado para o final da fila, se for o primeiro lado a atacar
             this.empurrarParaFinalFila(arena,fila);
         }
         

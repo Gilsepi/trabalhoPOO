@@ -36,11 +36,11 @@ public class Mumia extends Egipcio{
     @Override
     public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
         int atacados[] = new int[arena.getLado1().getFilas().size()];
-        Guerreiro guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getFirst();
-        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque());
+        Guerreiro guerreiroAtacado = arena.getLado1().getFilas().get(fila-1).getLista().getFirst(); // Localiza o guerreiro a ser atacado
+        guerreiroAtacado.sofrerDano(this.getDanoDeAtaque()); // Ataca
         atacados[0] = fila;
         
-        if(guerreiroAtacado.getEnergia()<=0){
+        if(guerreiroAtacado.getEnergia()<=0){ // Quando mata, cria um guerreiro MortoVivo em sua fila
            Guerreiro mortoVivo = new MortoVivo(100,guerreiroAtacado.getPeso(),guerreiroAtacado.getIdade(),guerreiroAtacado.getNome(),5);
            arena.getLado2().getFilas().get(filaAtacando-1).getLista().add(mortoVivo);
         }
