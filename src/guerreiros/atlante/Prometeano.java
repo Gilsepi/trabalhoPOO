@@ -18,6 +18,7 @@ public class Prometeano extends Atlante {
         super(energia, peso, idade, nome,danoDeAtaque);
         this.vidaQueNasceu = vidaQueNasceu;
     }
+    
 
     public int getVidaQueNasceu() {
         return vidaQueNasceu;

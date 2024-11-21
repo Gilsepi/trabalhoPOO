@@ -43,9 +43,10 @@ public class Gerenciador {
         if(ultimoGuerreiroAtacou != null){
             System.out.println("\nO(A) " + ultimoGuerreiroAtacou + " transferiu o ultimo ataque no(a) " + ultimoGuerreiroMorto);
         }else{
-            System.out.println("\nNao teve ultimo golpe transferido, O(A) " + ultimoGuerreiroMorto.getClass().getSimpleName() + " " + ultimoGuerreiroMorto.getNome() + " de " + String.valueOf(ultimoGuerreiroMorto.getIdade()) + " anos e " + String.valueOf(ultimoGuerreiroMorto.getPeso()) + " kilos, morreu envenenado(a)");
+            System.out.println("\nNao teve ultimo golpe transferido, O(A) " + ultimoGuerreiroMorto + ", morreu envenenado(a)");
         }
     }
+    
     private static void resetarVariaveis(){
         somaPesoAE = 0;
         somaPesoGN = 0;

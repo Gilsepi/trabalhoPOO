@@ -17,6 +17,7 @@ public class Anubita extends Egipcio{
     public Anubita(int energia, int peso, int idade, String nome, int danoDeAtaque) {
         super(energia, peso, idade, nome, danoDeAtaque);
     }
+    
    
     @Override
     public int[] atacar(Arena arena,int filaAtacando,int fila,boolean primeiroLadoAtacando){
