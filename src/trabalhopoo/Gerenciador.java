@@ -46,6 +46,11 @@ public class Gerenciador {
             System.out.println("\nNao teve ultimo golpe transferido, O(A) " + ultimoGuerreiroMorto.getClass().getSimpleName() + " " + ultimoGuerreiroMorto.getNome() + " de " + String.valueOf(ultimoGuerreiroMorto.getIdade()) + " anos e " + String.valueOf(ultimoGuerreiroMorto.getPeso()) + " kilos, morreu envenenado(a)");
         }
     }
+    private static void resetarVariaveis(){
+        somaPesoAE = 0;
+        somaPesoGN = 0;
+        maiorIdade = 0;
+    }
     
     public static void iniciarJogo(){
         instanciarArena();
@@ -60,6 +65,7 @@ public class Gerenciador {
         System.out.println("\n" + ladoVencedor.getNome() + " venceram\n" );
         printUltimoMorto();
         printUltimoAtacou();
+        resetarVariaveis();
     }
 
     private static void ladoAtacar(int ladoAtacante, int ladoAtacado,boolean atacaPrimeiro){
