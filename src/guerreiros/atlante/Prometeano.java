@@ -25,7 +25,7 @@ public class Prometeano extends Atlante {
     }
     
     @Override
-    public Guerreiro[] morrer(Arena arena,int fila){
+    public Guerreiro[] morrer(){
         Guerreiro vetor[] = new Guerreiro[2];
         this.setEnergia(0);
         if(this.getVidaQueNasceu()>1){ // Se o Prometeano morrer e a vida que ele nasceu for maior que 1 ele gera dois prometeanos novos

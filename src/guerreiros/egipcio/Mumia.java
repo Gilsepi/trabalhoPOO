@@ -21,7 +21,7 @@ public class Mumia extends Egipcio{
     
     
     @Override
-    public Guerreiro[] morrer(Arena arena,int fila ){
+    public Guerreiro[] morrer( ){
        Guerreiro vetor[] = new Guerreiro[4];
        this.setEnergia(0);
        int i;

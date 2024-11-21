@@ -26,7 +26,4 @@ public class Arena {
     public Lado getLado2() {
         return lado2;
     }
-
-    
-
 }

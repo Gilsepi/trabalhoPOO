@@ -1,3 +1,6 @@
 4 Carlos 18 120
 5 Alberto 25 100
 6 Nobrega 47 25
+4 Jose 18 120
+5 Alfredo 25 100
+

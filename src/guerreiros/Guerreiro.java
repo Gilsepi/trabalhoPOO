@@ -38,7 +38,7 @@ public abstract class Guerreiro {
     }
     
     //O método morrer retorna um vetor de Guerreiros, pois alguns guerreiros quando morrem instânciam outros guerreiros
-    public Guerreiro[] morrer(Arena arena, int fila){
+    public Guerreiro[] morrer(){
        this.setEnergia(0);
        return null;
     }

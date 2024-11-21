@@ -87,7 +87,7 @@ public class Gerenciador {
                 ultimoGuerreiroAtacou = guerreiroAtacando;
                 filasAtacadas = guerreiroAtacando.atacar(arena, fila, localizar , atacaPrimeiro); // chama o atacar() do guerreiro
                 if(verificarMorteGuerreiro(guerreiroAtacando)){              // Verifica se o próprio guerreiro que atacou morreu, por conta de veneno
-                    vetorGuerreiros = guerreiroAtacando.morrer(arena, fila); // Se o guerreiro atacando morreu chama o método morrer dele
+                    vetorGuerreiros = guerreiroAtacando.morrer(); // Se o guerreiro atacando morreu chama o método morrer dele
                     ultimoGuerreiroMorto = getLista(ladoAtacante,fila).remove();         // remove o guerreiro da fila
                     ultimoGuerreiroAtacou = null;
                     
@@ -117,7 +117,7 @@ public class Gerenciador {
                     while (it.hasNext()) { // Itera sobre a fila atacada
                         Guerreiro g = it.next(); // Pega um guerreiro da fila
                         if (verificarMorteGuerreiro(g)) { // Verifica se ele morreu
-                            vetorGuerreiros = g.morrer(arena,filasAtacadas[i]);
+                            vetorGuerreiros = g.morrer();
                             ultimoGuerreiroMorto = g;
                             it.remove();  // Remove o guerreiro de forma segura
                             if(vetorGuerreiros != null){
@@ -142,11 +142,6 @@ public class Gerenciador {
         }
     }
     
-    
-    
-    
-    
-    
     private static void iniciarTurnos(){
         while(!verificarVitoria()){
             int ladoQueAtacaPrimeiro = randomizarTurno(); // Escolhe o lado que ataca primeiro aleatoriamente
@@ -164,8 +159,6 @@ public class Gerenciador {
        getLado(2).setFlagFilaDoGuerreiroAlvo(-1);
    }
     
-    
- 
     private static int localizarAtaque(Lado ladoAtacado,int lado,int filaAtacando){
         int filaDoGuerreiroAtacado;
         int filaAtacada = filaAtacando; // A principio a fila que será atacada é a mesma fila que está atacando 
@@ -218,8 +211,8 @@ public class Gerenciador {
     }
     
     private static void printPesoDosLados(){
-        System.out.println("\nGregos e Nordicos pesam " + String.valueOf(somaPesoGN) + " kilos");
-        System.out.println("Atlantes e Egipcios pesam " + String.valueOf(somaPesoAE) + " kilos");
+        System.out.println("\n" + arena.getLado1().getNome() + " pesam " + String.valueOf(somaPesoGN) + " kilos");
+        System.out.println(arena.getLado2().getNome() + " pesam "  + String.valueOf(somaPesoAE) + " kilos");
     }
     
     private static void somatorioDePesos(int lado,Guerreiro g){

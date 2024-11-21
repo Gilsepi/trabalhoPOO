@@ -1,3 +1,4 @@
 1 dora 60 50
 2 sabado 40 30
 3 borboleto 78 200
+2 Cleber 40 30
