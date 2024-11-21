@@ -61,15 +61,7 @@ public class Gerenciador {
         printUltimoMorto();
         printUltimoAtacou();
     }
-    
-    private static void adicionarGuerreirosNaFila(int lado,int fila){
-        for(Guerreiro g : guerreirosParaAdicionar){ //adiciona os guerreiros da linkedlist, caso existam, na fila
-            if(g != null)getLista(lado,fila).add(g); 
-        }
-        guerreirosParaAdicionar.removeAll(guerreirosParaAdicionar); //remove todos os guerreiros da linkedlist
-    }   
-  
-    
+
     private static void ladoAtacar(int ladoAtacante, int ladoAtacado,boolean atacaPrimeiro){
         int fila;
         int i;
